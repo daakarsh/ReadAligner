@@ -1,1 +1,1 @@
-# CSE598_ReadAligner
+# ReadAligner
