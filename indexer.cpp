@@ -8,7 +8,7 @@ Indexer::~Indexer()
 {
 }
 
-void Indexer::buildIndex(DnaString seq)
+void Indexer::buildIndex(Dna5String seq)
 {
     idx = TIndex(seq);
 }

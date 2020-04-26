@@ -3,7 +3,7 @@
 using namespace seqan;
 
 /* QGram index of size k=12 */
-typedef Index<DnaString, IndexQGram<UngappedShape<12>>> TIndex;
+typedef Index<Dna5String, IndexQGram<UngappedShape<12>>> TIndex;
 
 class Indexer
 {
@@ -13,6 +13,6 @@ private:
 public:
     Indexer();
     ~Indexer();
-    void buildIndex(DnaString seq);
+    void buildIndex(Dna5String seq);
     TIndex getIndex();
 };

@@ -2,33 +2,33 @@
 #include "seqan/seq_io.h"
 #include <fstream>
 
-void seed_test()
-{
-    DnaString ref = "AGCTAGCTAGCTAGCTAGCT";
-    DnaString read = "AGCTAAGCTTAGCCT";
+// void seed_test()
+// {
+//     DnaString ref = "AGCTAGCTAGCTAGCTAGCT";
+//     DnaString read = "AGCTAAGCTTAGCCT";
 
-    Seed<Simple> seed(0, 0, 4, 4);
-    Score<int, Simple> scoringScheme(0, -1, -1);
-    extendSeed(seed, ref, read, EXTEND_RIGHT, scoringScheme, 3, GappedXDrop());
-    std::cout << infix(ref, beginPositionH(seed), endPositionH(seed)) << std::endl;
-    std::cout << infix(read, beginPositionV(seed), endPositionV(seed)) << std::endl;
-}
+//     Seed<Simple> seed(0, 0, 4, 4);
+//     Score<int, Simple> scoringScheme(0, -1, -1);
+//     extendSeed(seed, ref, read, EXTEND_RIGHT, scoringScheme, 3, GappedXDrop());
+//     std::cout << infix(ref, beginPositionH(seed), endPositionH(seed)) << std::endl;
+//     std::cout << infix(read, beginPositionV(seed), endPositionV(seed)) << std::endl;
+// }
 
 int main()
 {
-    String<char> id;
-    DnaString ref;
-    SeqFileIn refGenomeFile("sample.fasta");
+    CharString id;
+    Dna5String ref;
+    SeqFileIn refGenomeFile("/Users/daakarsh/Downloads/chr/chrY.fa");
     readRecord(id, ref, refGenomeFile);
     Indexer indexer;
     indexer.buildIndex(ref);
-    StringSet<String<char>> ids;
-    StringSet<DnaString> reads;
-    StringSet<DnaString> quals;
-    SeqFileIn readsFile("sd_0001.fastq");
+    StringSet<CharString> ids;
+    StringSet<Dna5String> reads;
+    StringSet<Dna5String> quals;
+    SeqFileIn readsFile("/Users/daakarsh/Downloads/chr_reads/chrY_0001.fastq");
     readRecords(ids, reads, quals, readsFile);
     std::string line;
-    std::ifstream myFile("sd_0001.maf");
+    std::ifstream myFile("/Users/daakarsh/Downloads/chr_reads/chrY_0001.maf");
     getline(myFile, line);
     unsigned t = 0;
     Seeder seeder;
@@ -43,15 +43,21 @@ int main()
             line.erase(0, pos + 1);
         }
         std::cout << token << std::endl;
-        for (short i = 0; i < 3; i++)
+        for (short i = 0; i < 7; i++)
         {
             getline(myFile, line);
         }
-        seeder.extendLordFast(ref, reads[t], indexer.getIndex(), 32);
-        // seeder.extendRHat(ref, reads[t], 14, 2048);
-        t++;
+        seeder.extendLordFast(ref, reads[t], indexer.getIndex(), 12, 128);
+        // seeder.extendRHat(ref, reads[t], 12, 512);
+        t += 2;
     }
     myFile.close();
     // seed_test();
+    // for (unsigned i = 0; i < length(reads); i += 2)
+    // {
+    //     seeder.extendLordFast(ref, reads[i], indexer.getIndex(), 12, 256);
+    //     std::cin.ignore();
+    // }
+
     return 0;
 }

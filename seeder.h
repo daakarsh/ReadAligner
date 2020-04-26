@@ -4,6 +4,7 @@
 #include <iostream>
 #include <map>
 #include <queue>
+#include <ctime>
 #include "indexer.h"
 #include "seqan/seeds.h"
 
@@ -13,6 +14,6 @@ private:
 public:
     Seeder();
     ~Seeder();
-    void extendLordFast(DnaString, DnaString, TIndex, unsigned);
-    void extendRHat(DnaString, DnaString, unsigned, unsigned);
+    void extendLordFast(Dna5String, Dna5String, TIndex, unsigned, unsigned);
+    // void extendRHat(CharString, CharString, unsigned, unsigned);
 };
