@@ -78,11 +78,18 @@ int main()
         getline(myFile, line);
         t += 2;
         std::cout << "Progress: " << (t * 100) / length(reads) << "%" << std::endl;
+        if (t % 50 == 0)
+        {
+            for (unsigned i = 0; i < 6; i++)
+            {
+                std::cout << "Delta " << i << " " << (2 * delta[i] * 100) / t << std::endl;
+            }
+        }
     }
     myFile.close();
     for (unsigned i = 0; i < 6; i++)
     {
-        std::cout << (2 * delta[i]) / t << std::endl;
+        std::cout << "Delta " << i << " " << (2 * delta[i] * 100) / t << std::endl;
     }
 
     // seed_test();
