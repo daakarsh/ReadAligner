@@ -18,40 +18,73 @@ int main()
 {
     CharString id;
     Dna5String ref;
-    SeqFileIn refGenomeFile("/Users/daakarsh/Downloads/chr/chrY.fa");
+    SeqFileIn refGenomeFile("sample.fasta");
     readRecord(id, ref, refGenomeFile);
     Indexer indexer;
     indexer.buildIndex(ref);
     StringSet<CharString> ids;
     StringSet<Dna5String> reads;
     StringSet<Dna5String> quals;
-    SeqFileIn readsFile("/Users/daakarsh/Downloads/chr_reads/chrY_0001.fastq");
+    SeqFileIn readsFile("sd_0001.fastq");
     readRecords(ids, reads, quals, readsFile);
+    std::cout << length(reads) << std::endl;
     std::string line;
-    std::ifstream myFile("/Users/daakarsh/Downloads/chr_reads/chrY_0001.maf");
-    getline(myFile, line);
+    std::ifstream myFile("start_positions.txt");
     unsigned t = 0;
+    unsigned ref_start;
     Seeder seeder;
+    unsigned delta[6];
+    for (unsigned i = 0; i < 6; i++)
+    {
+        delta[i] = 0;
+    }
+    std::vector<unsigned> candidateWindows;
+    unsigned min_elem;
     while (getline(myFile, line))
     {
-        size_t pos = 0;
-        std::string token;
-        for (int i = 0; i < 3; i++)
+        // std::cout << line << std::endl;
+        ref_start = std::stol(line);
+        candidateWindows = seeder.extendLordFast(ref, reads[t], indexer, 12 /*change this to k used in index*/, 64);
+        for (auto it = candidateWindows.begin(); it < candidateWindows.end(); it++)
         {
-            pos = line.find(" ");
-            token = line.substr(0, pos);
-            line.erase(0, pos + 1);
+            *it = std::abs(int(*it - ref_start));
         }
-        std::cout << token << std::endl;
-        for (short i = 0; i < 7; i++)
+        min_elem = *(min_element(candidateWindows.begin(), candidateWindows.end()));
+        // std::cout << "Distance from start " << min_elem << std::endl;
+        if (min_elem == 0)
         {
-            getline(myFile, line);
+            delta[0]++;
         }
-        seeder.extendLordFast(ref, reads[t], indexer.getIndex(), 12, 128);
-        // seeder.extendRHat(ref, reads[t], 12, 512);
+        if (min_elem <= 10)
+        {
+            delta[1]++;
+        }
+        if (min_elem <= 20)
+        {
+            delta[2]++;
+        }
+        if (min_elem <= 50)
+        {
+            delta[3]++;
+        }
+        if (min_elem <= 100)
+        {
+            delta[4]++;
+        }
+        if (min_elem <= 5000)
+        {
+            delta[5]++;
+        }
+        getline(myFile, line);
         t += 2;
+        std::cout << "Progress: " << (t * 100) / length(reads) << "%" << std::endl;
     }
     myFile.close();
+    for (unsigned i = 0; i < 6; i++)
+    {
+        std::cout << (2 * delta[i]) / t << std::endl;
+    }
+
     // seed_test();
     // for (unsigned i = 0; i < length(reads); i += 2)
     // {

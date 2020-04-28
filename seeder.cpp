@@ -24,12 +24,12 @@ bool comparator(const Anchor &lhs, const Anchor &rhs)
     return lhs.s < rhs.s;
 }
 
-void Seeder::extendLordFast(Dna5String refGenome, Dna5String read, TIndex idx, unsigned k, unsigned Space)
+std::vector<unsigned> Seeder::extendLordFast(Dna5String refGenome, Dna5String read, Indexer &idx, unsigned k, unsigned Space)
 {
-    time_t start_time = time(NULL);
+    // time_t start_time = time(NULL);
     std::vector<Anchor> matches;
     Seed<Simple> seed;
-    Finder<TIndex> finder(idx);
+    Finder<TIndex> finder(idx.getIndex());
     Dna5String anchor;
     for (unsigned i = 0; i <= length(read) - k; i += Space)
     {
@@ -39,16 +39,16 @@ void Seeder::extendLordFast(Dna5String refGenome, Dna5String read, TIndex idx, u
         {
             seed = Seed<Simple>(beginPosition(finder), i, endPosition(finder), i + k);
             Score<int, Simple> scoringScheme(0, -1, -1);
-            extendSeed(seed, refGenome, read, EXTEND_RIGHT, scoringScheme, 2, GappedXDrop());
+            extendSeed(seed, refGenome, read, EXTEND_RIGHT, scoringScheme, 3, GappedXDrop());
             matches.push_back(Anchor(i, beginPosition(finder), endPositionH(seed) - beginPositionH(seed)));
         }
-        if (time(NULL) - start_time > 60)
-        {
-            std::cout << "Time Limit Exceeded" << std::endl;
-            return;
-        }
+        // if (time(NULL) - start_time > 60)
+        // {
+        //     std::cout << "Time Limit Exceeded" << std::endl;
+        //     return;
+        // }
     }
-    std::cout << "matches done" << std::endl;
+    // std::cout << "matches done" << std::endl;
     std::vector<Anchor> longestMatches;
     unsigned max_elem = (*(max_element(matches.begin(), matches.end(), &comparator))).s;
     for (auto it = matches.begin(); it < matches.end(); it++)
@@ -58,7 +58,7 @@ void Seeder::extendLordFast(Dna5String refGenome, Dna5String read, TIndex idx, u
             longestMatches.push_back(*it);
         }
     }
-    std::cout << "longest matches done" << std::endl;
+    // std::cout << "longest matches done" << std::endl;
     matches.clear();
     matches.shrink_to_fit();
     std::vector<unsigned> windowScore(length(refGenome) / length(read));
@@ -72,7 +72,7 @@ void Seeder::extendLordFast(Dna5String refGenome, Dna5String read, TIndex idx, u
             }
         }
     }
-    std::cout << "window scores done" << std::endl;
+    // std::cout << "window scores done" << std::endl;
     std::vector<unsigned> candidateWindow;
     max_elem = *(max_element(windowScore.begin(), windowScore.end()));
     for (unsigned i = 0; i < (length(refGenome) / length(read)); i++)
@@ -82,15 +82,15 @@ void Seeder::extendLordFast(Dna5String refGenome, Dna5String read, TIndex idx, u
             candidateWindow.push_back(i);
         }
     }
-    std::cout << "candidate windows done" << std::endl;
+    // std::cout << "candidate windows done" << std::endl;
     windowScore.clear();
     windowScore.shrink_to_fit();
-    std::cout << "Candidate Window old: ";
-    for (auto it = candidateWindow.begin(); it != candidateWindow.end(); it++)
-    {
-        std::cout << (*it) * length(read) << " ";
-    }
-    std::cout << std::endl;
+    // std::cout << "Candidate Window old: ";
+    // for (auto it = candidateWindow.begin(); it != candidateWindow.end(); it++)
+    // {
+    //     std::cout << (*it) * length(read) << " ";
+    // }
+    // std::cout << std::endl;
 
     bool found;
     for (auto it = candidateWindow.begin(); it != candidateWindow.end(); it++)
@@ -119,16 +119,16 @@ void Seeder::extendLordFast(Dna5String refGenome, Dna5String read, TIndex idx, u
             *it = length(refGenome);
         }
     }
-
-    std::cout << "Candidate Window new: ";
-    for (auto it = candidateWindow.begin(); it != candidateWindow.end(); it++)
-    {
-        if (*it < length(refGenome))
-        {
-            std::cout << (*it) << " ";
-        }
-    }
-    std::cout << std::endl;
+    return candidateWindow;
+    // std::cout << "Candidate Window new: ";
+    // for (auto it = candidateWindow.begin(); it != candidateWindow.end(); it++)
+    // {
+    //     if (*it < length(refGenome))
+    //     {
+    //         std::cout << (*it) << " ";
+    //     }
+    // }
+    // std::cout << std::endl;
 }
 
 // void Seeder::extendRHat(Dna5String refGenome, Dna5String read, unsigned k, unsigned L)

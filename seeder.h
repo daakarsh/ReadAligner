@@ -14,6 +14,6 @@ private:
 public:
     Seeder();
     ~Seeder();
-    void extendLordFast(Dna5String, Dna5String, TIndex, unsigned, unsigned);
+    std::vector<unsigned> extendLordFast(Dna5String, Dna5String, Indexer &idx, unsigned, unsigned);
     // void extendRHat(CharString, CharString, unsigned, unsigned);
 };
