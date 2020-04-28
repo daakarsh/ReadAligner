@@ -1,0 +1,3 @@
+/home/me/myseeder/build/CMakeFiles/rebuild_cache.dir
+/home/me/myseeder/build/CMakeFiles/edit_cache.dir
+/home/me/myseeder/build/CMakeFiles/main.dir
