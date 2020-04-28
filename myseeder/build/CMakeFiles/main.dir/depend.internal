@@ -36,6 +36,18 @@ CMakeFiles/main.dir/main.cpp.o
  /home/me/myseeder/seqan3/include/seqan3/alphabet/quality/phred42.hpp
  /home/me/myseeder/seqan3/include/seqan3/alphabet/quality/qualified.hpp
  /home/me/myseeder/seqan3/include/seqan3/alphabet/quality/quality_base.hpp
+ /home/me/myseeder/seqan3/include/seqan3/argument_parser/all.hpp
+ /home/me/myseeder/seqan3/include/seqan3/argument_parser/argument_parser.hpp
+ /home/me/myseeder/seqan3/include/seqan3/argument_parser/auxiliary.hpp
+ /home/me/myseeder/seqan3/include/seqan3/argument_parser/detail/format_base.hpp
+ /home/me/myseeder/seqan3/include/seqan3/argument_parser/detail/format_help.hpp
+ /home/me/myseeder/seqan3/include/seqan3/argument_parser/detail/format_html.hpp
+ /home/me/myseeder/seqan3/include/seqan3/argument_parser/detail/format_man.hpp
+ /home/me/myseeder/seqan3/include/seqan3/argument_parser/detail/format_parse.hpp
+ /home/me/myseeder/seqan3/include/seqan3/argument_parser/detail/terminal.hpp
+ /home/me/myseeder/seqan3/include/seqan3/argument_parser/detail/version_check.hpp
+ /home/me/myseeder/seqan3/include/seqan3/argument_parser/exceptions.hpp
+ /home/me/myseeder/seqan3/include/seqan3/argument_parser/validators.hpp
  /home/me/myseeder/seqan3/include/seqan3/contrib/parallel/buffer_queue.hpp
  /home/me/myseeder/seqan3/include/seqan3/contrib/stream/bgzf_istream.hpp
  /home/me/myseeder/seqan3/include/seqan3/contrib/stream/bgzf_stream_util.hpp
@@ -67,6 +79,7 @@ CMakeFiles/main.dir/main.cpp.o
  /home/me/myseeder/seqan3/include/seqan3/core/detail/int_types.hpp
  /home/me/myseeder/seqan3/include/seqan3/core/detail/pack_algorithm.hpp
  /home/me/myseeder/seqan3/include/seqan3/core/detail/strong_type.hpp
+ /home/me/myseeder/seqan3/include/seqan3/core/detail/test_accessor.hpp
  /home/me/myseeder/seqan3/include/seqan3/core/detail/to_string.hpp
  /home/me/myseeder/seqan3/include/seqan3/core/detail/type_inspection.hpp
  /home/me/myseeder/seqan3/include/seqan3/core/parallel/detail/latch.hpp
@@ -103,6 +116,7 @@ CMakeFiles/main.dir/main.cpp.o
  /home/me/myseeder/seqan3/include/seqan3/io/detail/misc.hpp
  /home/me/myseeder/seqan3/include/seqan3/io/detail/misc_input.hpp
  /home/me/myseeder/seqan3/include/seqan3/io/detail/record.hpp
+ /home/me/myseeder/seqan3/include/seqan3/io/detail/safe_filesystem_entry.hpp
  /home/me/myseeder/seqan3/include/seqan3/io/exception.hpp
  /home/me/myseeder/seqan3/include/seqan3/io/record.hpp
  /home/me/myseeder/seqan3/include/seqan3/io/sequence_file/format_embl.hpp
@@ -173,6 +187,7 @@ CMakeFiles/main.dir/main.cpp.o
  /home/me/myseeder/seqan3/include/seqan3/std/ranges
  /home/me/myseeder/seqan3/include/seqan3/std/span
  /home/me/myseeder/seqan3/include/seqan3/std/type_traits
+ /home/me/myseeder/seqan3/include/seqan3/version.hpp
  /home/me/myseeder/seqan3/submodules/cereal/include/cereal/access.hpp
  /home/me/myseeder/seqan3/submodules/cereal/include/cereal/archives/binary.hpp
  /home/me/myseeder/seqan3/submodules/cereal/include/cereal/archives/json.hpp

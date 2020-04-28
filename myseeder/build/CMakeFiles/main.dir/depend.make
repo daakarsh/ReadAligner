@@ -35,6 +35,18 @@ CMakeFiles/main.dir/main.cpp.o: /home/me/myseeder/seqan3/include/seqan3/alphabet
 CMakeFiles/main.dir/main.cpp.o: /home/me/myseeder/seqan3/include/seqan3/alphabet/quality/phred42.hpp
 CMakeFiles/main.dir/main.cpp.o: /home/me/myseeder/seqan3/include/seqan3/alphabet/quality/qualified.hpp
 CMakeFiles/main.dir/main.cpp.o: /home/me/myseeder/seqan3/include/seqan3/alphabet/quality/quality_base.hpp
+CMakeFiles/main.dir/main.cpp.o: /home/me/myseeder/seqan3/include/seqan3/argument_parser/all.hpp
+CMakeFiles/main.dir/main.cpp.o: /home/me/myseeder/seqan3/include/seqan3/argument_parser/argument_parser.hpp
+CMakeFiles/main.dir/main.cpp.o: /home/me/myseeder/seqan3/include/seqan3/argument_parser/auxiliary.hpp
+CMakeFiles/main.dir/main.cpp.o: /home/me/myseeder/seqan3/include/seqan3/argument_parser/detail/format_base.hpp
+CMakeFiles/main.dir/main.cpp.o: /home/me/myseeder/seqan3/include/seqan3/argument_parser/detail/format_help.hpp
+CMakeFiles/main.dir/main.cpp.o: /home/me/myseeder/seqan3/include/seqan3/argument_parser/detail/format_html.hpp
+CMakeFiles/main.dir/main.cpp.o: /home/me/myseeder/seqan3/include/seqan3/argument_parser/detail/format_man.hpp
+CMakeFiles/main.dir/main.cpp.o: /home/me/myseeder/seqan3/include/seqan3/argument_parser/detail/format_parse.hpp
+CMakeFiles/main.dir/main.cpp.o: /home/me/myseeder/seqan3/include/seqan3/argument_parser/detail/terminal.hpp
+CMakeFiles/main.dir/main.cpp.o: /home/me/myseeder/seqan3/include/seqan3/argument_parser/detail/version_check.hpp
+CMakeFiles/main.dir/main.cpp.o: /home/me/myseeder/seqan3/include/seqan3/argument_parser/exceptions.hpp
+CMakeFiles/main.dir/main.cpp.o: /home/me/myseeder/seqan3/include/seqan3/argument_parser/validators.hpp
 CMakeFiles/main.dir/main.cpp.o: /home/me/myseeder/seqan3/include/seqan3/contrib/parallel/buffer_queue.hpp
 CMakeFiles/main.dir/main.cpp.o: /home/me/myseeder/seqan3/include/seqan3/contrib/stream/bgzf_istream.hpp
 CMakeFiles/main.dir/main.cpp.o: /home/me/myseeder/seqan3/include/seqan3/contrib/stream/bgzf_stream_util.hpp
@@ -66,6 +78,7 @@ CMakeFiles/main.dir/main.cpp.o: /home/me/myseeder/seqan3/include/seqan3/core/det
 CMakeFiles/main.dir/main.cpp.o: /home/me/myseeder/seqan3/include/seqan3/core/detail/int_types.hpp
 CMakeFiles/main.dir/main.cpp.o: /home/me/myseeder/seqan3/include/seqan3/core/detail/pack_algorithm.hpp
 CMakeFiles/main.dir/main.cpp.o: /home/me/myseeder/seqan3/include/seqan3/core/detail/strong_type.hpp
+CMakeFiles/main.dir/main.cpp.o: /home/me/myseeder/seqan3/include/seqan3/core/detail/test_accessor.hpp
 CMakeFiles/main.dir/main.cpp.o: /home/me/myseeder/seqan3/include/seqan3/core/detail/to_string.hpp
 CMakeFiles/main.dir/main.cpp.o: /home/me/myseeder/seqan3/include/seqan3/core/detail/type_inspection.hpp
 CMakeFiles/main.dir/main.cpp.o: /home/me/myseeder/seqan3/include/seqan3/core/parallel/detail/latch.hpp
@@ -102,6 +115,7 @@ CMakeFiles/main.dir/main.cpp.o: /home/me/myseeder/seqan3/include/seqan3/io/detai
 CMakeFiles/main.dir/main.cpp.o: /home/me/myseeder/seqan3/include/seqan3/io/detail/misc.hpp
 CMakeFiles/main.dir/main.cpp.o: /home/me/myseeder/seqan3/include/seqan3/io/detail/misc_input.hpp
 CMakeFiles/main.dir/main.cpp.o: /home/me/myseeder/seqan3/include/seqan3/io/detail/record.hpp
+CMakeFiles/main.dir/main.cpp.o: /home/me/myseeder/seqan3/include/seqan3/io/detail/safe_filesystem_entry.hpp
 CMakeFiles/main.dir/main.cpp.o: /home/me/myseeder/seqan3/include/seqan3/io/exception.hpp
 CMakeFiles/main.dir/main.cpp.o: /home/me/myseeder/seqan3/include/seqan3/io/record.hpp
 CMakeFiles/main.dir/main.cpp.o: /home/me/myseeder/seqan3/include/seqan3/io/sequence_file/format_embl.hpp
@@ -172,6 +186,7 @@ CMakeFiles/main.dir/main.cpp.o: /home/me/myseeder/seqan3/include/seqan3/std/new
 CMakeFiles/main.dir/main.cpp.o: /home/me/myseeder/seqan3/include/seqan3/std/ranges
 CMakeFiles/main.dir/main.cpp.o: /home/me/myseeder/seqan3/include/seqan3/std/span
 CMakeFiles/main.dir/main.cpp.o: /home/me/myseeder/seqan3/include/seqan3/std/type_traits
+CMakeFiles/main.dir/main.cpp.o: /home/me/myseeder/seqan3/include/seqan3/version.hpp
 CMakeFiles/main.dir/main.cpp.o: /home/me/myseeder/seqan3/submodules/cereal/include/cereal/access.hpp
 CMakeFiles/main.dir/main.cpp.o: /home/me/myseeder/seqan3/submodules/cereal/include/cereal/archives/binary.hpp
 CMakeFiles/main.dir/main.cpp.o: /home/me/myseeder/seqan3/submodules/cereal/include/cereal/archives/json.hpp
