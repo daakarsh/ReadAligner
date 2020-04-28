@@ -410,3 +410,147 @@ make: *** [Makefile:138: cmTC_afc4a/fast] Error 2
 Source file was:
 static_assert (__cpp_concepts >= 201507);
     int main() {}
+Performing C++ SOURCE FILE Test CONCEPTS_FLAG-std=c++20 failed with the following output:
+Change Dir: /home/me/myseeder/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_76cfc/fast && make[1]: Entering directory '/home/me/myseeder/build/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTC_76cfc.dir/build.make CMakeFiles/cmTC_76cfc.dir/build
+make[2]: Entering directory '/home/me/myseeder/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_76cfc.dir/src.cxx.o
+/usr/bin/c++   -I/home/me/myseeder/seqan3/include -I/home/me/myseeder/seqan3/submodules/sdsl-lite/include -I/home/me/myseeder/seqan3/submodules/range-v3/include -I/home/me/myseeder/seqan3/submodules/cereal/include  -DCONCEPTS_FLAG-std=c++20  -std=c++17 -std=c++20   -o CMakeFiles/cmTC_76cfc.dir/src.cxx.o -c /home/me/myseeder/build/CMakeFiles/CMakeTmp/src.cxx
+c++: error: unrecognized command line option ‘-std=c++20’; did you mean ‘-std=c++2a’?
+make[2]: *** [CMakeFiles/cmTC_76cfc.dir/build.make:83: CMakeFiles/cmTC_76cfc.dir/src.cxx.o] Error 1
+make[2]: Leaving directory '/home/me/myseeder/build/CMakeFiles/CMakeTmp'
+make[1]: *** [Makefile:138: cmTC_76cfc/fast] Error 2
+make[1]: Leaving directory '/home/me/myseeder/build/CMakeFiles/CMakeTmp'
+
+
+Source file was:
+static_assert (__cpp_concepts >= 201507);
+    int main() {}
+Performing C++ SOURCE FILE Test CONCEPTS_FLAG-std=c++2a failed with the following output:
+Change Dir: /home/me/myseeder/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_c2f3e/fast && make[1]: Entering directory '/home/me/myseeder/build/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTC_c2f3e.dir/build.make CMakeFiles/cmTC_c2f3e.dir/build
+make[2]: Entering directory '/home/me/myseeder/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_c2f3e.dir/src.cxx.o
+/usr/bin/c++   -I/home/me/myseeder/seqan3/include -I/home/me/myseeder/seqan3/submodules/sdsl-lite/include -I/home/me/myseeder/seqan3/submodules/range-v3/include -I/home/me/myseeder/seqan3/submodules/cereal/include  -DCONCEPTS_FLAG-std=c++2a  -std=c++17 -std=c++2a   -o CMakeFiles/cmTC_c2f3e.dir/src.cxx.o -c /home/me/myseeder/build/CMakeFiles/CMakeTmp/src.cxx
+<command-line>: warning: ISO C++11 requires whitespace after the macro name
+/home/me/myseeder/build/CMakeFiles/CMakeTmp/src.cxx:1:16: error: ‘__cpp_concepts’ was not declared in this scope
+    1 | static_assert (__cpp_concepts >= 201507);
+      |                ^~~~~~~~~~~~~~
+make[2]: *** [CMakeFiles/cmTC_c2f3e.dir/build.make:83: CMakeFiles/cmTC_c2f3e.dir/src.cxx.o] Error 1
+make[2]: Leaving directory '/home/me/myseeder/build/CMakeFiles/CMakeTmp'
+make[1]: *** [Makefile:138: cmTC_c2f3e/fast] Error 2
+make[1]: Leaving directory '/home/me/myseeder/build/CMakeFiles/CMakeTmp'
+
+
+Source file was:
+static_assert (__cpp_concepts >= 201507);
+    int main() {}
+Performing C++ SOURCE FILE Test CONCEPTS_FLAG-std=c++20 failed with the following output:
+Change Dir: /home/me/myseeder/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_9339a/fast && /usr/bin/make -f CMakeFiles/cmTC_9339a.dir/build.make CMakeFiles/cmTC_9339a.dir/build
+make[1]: Entering directory '/home/me/myseeder/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_9339a.dir/src.cxx.o
+/usr/bin/c++   -I/home/me/myseeder/seqan3/include -I/home/me/myseeder/seqan3/submodules/sdsl-lite/include -I/home/me/myseeder/seqan3/submodules/range-v3/include -I/home/me/myseeder/seqan3/submodules/cereal/include  -DCONCEPTS_FLAG-std=c++20  -std=c++17 -std=c++20   -o CMakeFiles/cmTC_9339a.dir/src.cxx.o -c /home/me/myseeder/build/CMakeFiles/CMakeTmp/src.cxx
+c++: error: unrecognized command line option ‘-std=c++20’; did you mean ‘-std=c++2a’?
+make[1]: *** [CMakeFiles/cmTC_9339a.dir/build.make:83: CMakeFiles/cmTC_9339a.dir/src.cxx.o] Error 1
+make[1]: Leaving directory '/home/me/myseeder/build/CMakeFiles/CMakeTmp'
+make: *** [Makefile:138: cmTC_9339a/fast] Error 2
+
+
+Source file was:
+static_assert (__cpp_concepts >= 201507);
+    int main() {}
+Performing C++ SOURCE FILE Test CONCEPTS_FLAG-std=c++2a failed with the following output:
+Change Dir: /home/me/myseeder/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_4a327/fast && /usr/bin/make -f CMakeFiles/cmTC_4a327.dir/build.make CMakeFiles/cmTC_4a327.dir/build
+make[1]: Entering directory '/home/me/myseeder/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_4a327.dir/src.cxx.o
+/usr/bin/c++   -I/home/me/myseeder/seqan3/include -I/home/me/myseeder/seqan3/submodules/sdsl-lite/include -I/home/me/myseeder/seqan3/submodules/range-v3/include -I/home/me/myseeder/seqan3/submodules/cereal/include  -DCONCEPTS_FLAG-std=c++2a  -std=c++17 -std=c++2a   -o CMakeFiles/cmTC_4a327.dir/src.cxx.o -c /home/me/myseeder/build/CMakeFiles/CMakeTmp/src.cxx
+<command-line>: warning: ISO C++11 requires whitespace after the macro name
+/home/me/myseeder/build/CMakeFiles/CMakeTmp/src.cxx:1:16: error: ‘__cpp_concepts’ was not declared in this scope
+    1 | static_assert (__cpp_concepts >= 201507);
+      |                ^~~~~~~~~~~~~~
+make[1]: *** [CMakeFiles/cmTC_4a327.dir/build.make:83: CMakeFiles/cmTC_4a327.dir/src.cxx.o] Error 1
+make[1]: Leaving directory '/home/me/myseeder/build/CMakeFiles/CMakeTmp'
+make: *** [Makefile:138: cmTC_4a327/fast] Error 2
+
+
+Source file was:
+static_assert (__cpp_concepts >= 201507);
+    int main() {}
+Performing C++ SOURCE FILE Test CONCEPTS_FLAG-std=c++20 failed with the following output:
+Change Dir: /home/me/myseeder/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_0bd8b/fast && /usr/bin/make -f CMakeFiles/cmTC_0bd8b.dir/build.make CMakeFiles/cmTC_0bd8b.dir/build
+make[1]: Entering directory '/home/me/myseeder/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_0bd8b.dir/src.cxx.o
+/usr/bin/c++   -I/home/me/myseeder/seqan3/include -I/home/me/myseeder/seqan3/submodules/sdsl-lite/include -I/home/me/myseeder/seqan3/submodules/range-v3/include -I/home/me/myseeder/seqan3/submodules/cereal/include  -DCONCEPTS_FLAG-std=c++20  -std=c++17 -std=c++20   -o CMakeFiles/cmTC_0bd8b.dir/src.cxx.o -c /home/me/myseeder/build/CMakeFiles/CMakeTmp/src.cxx
+c++: error: unrecognized command line option ‘-std=c++20’; did you mean ‘-std=c++2a’?
+make[1]: *** [CMakeFiles/cmTC_0bd8b.dir/build.make:83: CMakeFiles/cmTC_0bd8b.dir/src.cxx.o] Error 1
+make[1]: Leaving directory '/home/me/myseeder/build/CMakeFiles/CMakeTmp'
+make: *** [Makefile:138: cmTC_0bd8b/fast] Error 2
+
+
+Source file was:
+static_assert (__cpp_concepts >= 201507);
+    int main() {}
+Performing C++ SOURCE FILE Test CONCEPTS_FLAG-std=c++2a failed with the following output:
+Change Dir: /home/me/myseeder/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_a4fe0/fast && /usr/bin/make -f CMakeFiles/cmTC_a4fe0.dir/build.make CMakeFiles/cmTC_a4fe0.dir/build
+make[1]: Entering directory '/home/me/myseeder/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_a4fe0.dir/src.cxx.o
+/usr/bin/c++   -I/home/me/myseeder/seqan3/include -I/home/me/myseeder/seqan3/submodules/sdsl-lite/include -I/home/me/myseeder/seqan3/submodules/range-v3/include -I/home/me/myseeder/seqan3/submodules/cereal/include  -DCONCEPTS_FLAG-std=c++2a  -std=c++17 -std=c++2a   -o CMakeFiles/cmTC_a4fe0.dir/src.cxx.o -c /home/me/myseeder/build/CMakeFiles/CMakeTmp/src.cxx
+<command-line>: warning: ISO C++11 requires whitespace after the macro name
+/home/me/myseeder/build/CMakeFiles/CMakeTmp/src.cxx:1:16: error: ‘__cpp_concepts’ was not declared in this scope
+    1 | static_assert (__cpp_concepts >= 201507);
+      |                ^~~~~~~~~~~~~~
+make[1]: *** [CMakeFiles/cmTC_a4fe0.dir/build.make:83: CMakeFiles/cmTC_a4fe0.dir/src.cxx.o] Error 1
+make[1]: Leaving directory '/home/me/myseeder/build/CMakeFiles/CMakeTmp'
+make: *** [Makefile:138: cmTC_a4fe0/fast] Error 2
+
+
+Source file was:
+static_assert (__cpp_concepts >= 201507);
+    int main() {}
+Performing C++ SOURCE FILE Test CONCEPTS_FLAG-std=c++20 failed with the following output:
+Change Dir: /home/me/myseeder/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_cb169/fast && /usr/bin/make -f CMakeFiles/cmTC_cb169.dir/build.make CMakeFiles/cmTC_cb169.dir/build
+make[1]: Entering directory '/home/me/myseeder/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_cb169.dir/src.cxx.o
+/usr/bin/c++   -I/home/me/myseeder/seqan3/include -I/home/me/myseeder/seqan3/submodules/sdsl-lite/include -I/home/me/myseeder/seqan3/submodules/range-v3/include -I/home/me/myseeder/seqan3/submodules/cereal/include  -DCONCEPTS_FLAG-std=c++20  -std=c++17 -std=c++20   -o CMakeFiles/cmTC_cb169.dir/src.cxx.o -c /home/me/myseeder/build/CMakeFiles/CMakeTmp/src.cxx
+c++: error: unrecognized command line option ‘-std=c++20’; did you mean ‘-std=c++2a’?
+make[1]: *** [CMakeFiles/cmTC_cb169.dir/build.make:83: CMakeFiles/cmTC_cb169.dir/src.cxx.o] Error 1
+make[1]: Leaving directory '/home/me/myseeder/build/CMakeFiles/CMakeTmp'
+make: *** [Makefile:138: cmTC_cb169/fast] Error 2
+
+
+Source file was:
+static_assert (__cpp_concepts >= 201507);
+    int main() {}
+Performing C++ SOURCE FILE Test CONCEPTS_FLAG-std=c++2a failed with the following output:
+Change Dir: /home/me/myseeder/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_caff7/fast && /usr/bin/make -f CMakeFiles/cmTC_caff7.dir/build.make CMakeFiles/cmTC_caff7.dir/build
+make[1]: Entering directory '/home/me/myseeder/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_caff7.dir/src.cxx.o
+/usr/bin/c++   -I/home/me/myseeder/seqan3/include -I/home/me/myseeder/seqan3/submodules/sdsl-lite/include -I/home/me/myseeder/seqan3/submodules/range-v3/include -I/home/me/myseeder/seqan3/submodules/cereal/include  -DCONCEPTS_FLAG-std=c++2a  -std=c++17 -std=c++2a   -o CMakeFiles/cmTC_caff7.dir/src.cxx.o -c /home/me/myseeder/build/CMakeFiles/CMakeTmp/src.cxx
+<command-line>: warning: ISO C++11 requires whitespace after the macro name
+/home/me/myseeder/build/CMakeFiles/CMakeTmp/src.cxx:1:16: error: ‘__cpp_concepts’ was not declared in this scope
+    1 | static_assert (__cpp_concepts >= 201507);
+      |                ^~~~~~~~~~~~~~
+make[1]: *** [CMakeFiles/cmTC_caff7.dir/build.make:83: CMakeFiles/cmTC_caff7.dir/src.cxx.o] Error 1
+make[1]: Leaving directory '/home/me/myseeder/build/CMakeFiles/CMakeTmp'
+make: *** [Makefile:138: cmTC_caff7/fast] Error 2
+
+
+Source file was:
+static_assert (__cpp_concepts >= 201507);
+    int main() {}

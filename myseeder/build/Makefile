@@ -167,6 +167,33 @@ main.cpp.s:
 	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/main.cpp.s
 .PHONY : main.cpp.s
 
+seed.o: seed.cpp.o
+
+.PHONY : seed.o
+
+# target to build an object file
+seed.cpp.o:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/seed.cpp.o
+.PHONY : seed.cpp.o
+
+seed.i: seed.cpp.i
+
+.PHONY : seed.i
+
+# target to preprocess a source file
+seed.cpp.i:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/seed.cpp.i
+.PHONY : seed.cpp.i
+
+seed.s: seed.cpp.s
+
+.PHONY : seed.s
+
+# target to generate assembly for a file
+seed.cpp.s:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/seed.cpp.s
+.PHONY : seed.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -179,6 +206,9 @@ help:
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
+	@echo "... seed.o"
+	@echo "... seed.i"
+	@echo "... seed.s"
 .PHONY : help
 
 

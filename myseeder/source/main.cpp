@@ -8,15 +8,11 @@
 #include <string>
 #include <fstream>
 #include <vector>
+#include "seed.h"
 
  
 using seqan3::operator""_dna5;
 
-struct Reads {
-  std::vector<int> positions;
-  std::vector<seqan3::dna5_vector> sequences;
-};
- 
 Reads parse_reads(std::string path) {
   Reads reads = Reads();
   std::ifstream file(path);
@@ -30,15 +26,6 @@ Reads parse_reads(std::string path) {
         int startpos, len, refsize;
         std::stringstream ss(line);
         ss >> s >> src >> startpos >> len >> dir >> refsize >> seq;
-        //std::vector<std::string> tokens;
-        //for (int f = 0; f < 7; f++) {    // store the position and sequence
-        //  startpos = endpos;
-        //  endpos = line.find(" ");
-        //  token = line.substr(startpos, endpos);
-        //  tokens.push_back(token);
-        //}
-        // seqan3::debug_stream << "read----------------------------------" << '\n';
-        // seqan3::debug_stream << "startpos: " << startpos << '\n';
         reads.positions.push_back(startpos);
       }
     }
@@ -70,23 +57,32 @@ seqan3::dna5_vector parse_fasta(std::string path) {
   return ref;
 }
 
-std::vector<int> seed(seqan3::dna5_vector &read, seqan3::dna5_vector &ref, 
-                      int k, int gaps) {
-  seqan3::configuration const cfg = seqan3::search_cfg::max_error
-          {seqan3::search_cfg::substitution{(unsigned char)gaps}};
+void store_fmindex(seqan3::dna5_vector &ref) {
   seqan3::fm_index index{ref};
-
-  std::vector<int> positions;
-  for (int i = 0; i < read.size() / k; i += k) {
-    seqan3::dna5_vector kmer;
-    int n = i + k + 1;
-    std::copy(read.begin() + i, read.begin() + n, std::back_inserter(kmer));
-    for (auto && pos : search(kmer, index, cfg)) {
-      positions.push_back(std::get<1>(pos));
-    }
+  {
+    std::ofstream os{"index.file", std::ios::binary};
+    cereal::BinaryOutputArchive oarchive{os};
+    oarchive(index);
   }
-  return positions;
 }
+
+// std::vector<int> seed(seqan3::dna5_vector &read, seqan3::dna5_vector &ref,
+//                       int k, int gaps) {
+//   seqan3::configuration const cfg = seqan3::search_cfg::max_error
+//           {seqan3::search_cfg::substitution{(unsigned char)gaps}};
+//   seqan3::fm_index index{ref};
+//
+//   std::vector<int> positions;
+//   for (int i = 0; i < read.size() / k; i += k) {
+//     seqan3::dna5_vector kmer;
+//     int n = i + k + 1;
+//     std::copy(read.begin() + i, read.begin() + n, std::back_inserter(kmer));
+//     for (auto && pos : search(kmer, index, cfg)) {
+//       positions.push_back(std::get<1>(pos));
+//     }
+//   }
+//   return positions;
+// }
 
 // TODO: move this
 struct cmd_arguments {
@@ -95,6 +91,7 @@ struct cmd_arguments {
   std::filesystem::path maf_path{};
   int k;
   int gaps;
+  int coverage;
 };
 
 void init_argparser(seqan3::argument_parser & parser, cmd_arguments & args) {
@@ -103,6 +100,7 @@ void init_argparser(seqan3::argument_parser & parser, cmd_arguments & args) {
   parser.add_positional_option(args.maf_path, "provide a reads file (maf)");
   parser.add_option(args.k, 'k', "kmersize", "size of kmer to index");
   parser.add_option(args.gaps, 'g', "gaps", "gaps or wildcards allowed");
+  parser.add_option(args.coverage, 'c', "coverage", "coverage low = 1, high = (k-1)");
 }
 
 int main(int argc, char ** argv)
@@ -119,44 +117,26 @@ int main(int argc, char ** argv)
     return -1;
   }
 
-  //seqan3::dna5_vector ref = parse_fasta("small.fasta");
   seqan3::dna5_vector ref = parse_fasta(args.ref_path);
-  //Reads reads = parse_reads("small_0001.maf");
   Reads reads = parse_reads(args.maf_path);
-  //reads.sequences = parse_fastq("small_0001.fastq");
   reads.sequences = parse_fastq(args.reads_path);
-
-  for (int i = 0; i < reads.positions.size(); i++) {
-    // seqan3::debug_stream << "start position: " << reads.positions[i] << '\n';
-    // seqan3::debug_stream << "read: " << reads.sequences[i] << '\n';
-  }
-  // seqan3::debug_stream << ref << '\n';
-  seqan3::debug_stream << "==========\n";
-
-  seqan3::fm_index index{ref};
- 
-  // seqan3::configuration const cfg = seqan3::search_cfg::max_error{seqan3::search_cfg::substitution{1}};
 
   int k = args.k;
   int gaps = args.gaps;
+  int coverage = args.coverage;
+
+  seqan3::fm_index index{ref};
+
+  // store_fmindex(ref);
 
   for (int i = 0; i < reads.sequences.size(); i++) {
     int actualpos = reads.positions[i];
     seqan3::debug_stream << "ACTUAL POSITION: " << actualpos << '\n';
-    std::vector<int> positions = seed(reads.sequences[i], ref, k, gaps);
+    std::vector<int> positions = seed(reads.sequences[i], index, k, gaps, coverage);
     for (int j = 0; j < positions.size(); j++) {
       if (positions[j] >= actualpos - 10 && positions[j] <= actualpos + 10) {
         seqan3::debug_stream << "closely matched at: " << positions[j] << '\n';
       }
     }
-
-   // for (int j = 0; j < reads.sequences[i].size() - k; j++) {
-   //   seqan3::dna5_vector kmer;
-   //   int n = j + k + 1;
-   //   std::copy(reads.sequences[i].begin() + j, reads.sequences[i].begin() + n, std::back_inserter(kmer));
-   //   for (auto && pos : search(kmer, index, cfg)) {
-   //     seqan3::debug_stream << "At position " << std::get<1>(pos) << '\n';
-   //   }
-   // }
   }
 }
